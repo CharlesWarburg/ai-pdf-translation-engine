@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI PDF Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <div class="card">
+        <header class="card-header">
+          <h1 class="title">DOCUMENT TRANSLATOR</h1>
+          <p class="subtitle">Upload a PDF, pick a target language, and download a translated copy.</p>
+        </header>
+
+        <form id="translate-form">
+          <div class="field-group">
+            <label for="file">DOCUMENT</label>
+            <div class="file-input">
+              <input id="file" name="file" type="file" accept=".pdf,application/pdf" />
+            </div>
+            <div class="file-selection" id="file-selection" aria-live="polite">
+              <span class="file-selection-name" id="file-selection-name"></span>
+              <button type="button" class="file-clear" id="file-clear" tabindex="-1">Clear</button>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="target_language">TARGET LANGUAGE</label>
+            <div class="select-wrap">
+              <select id="target_language" name="target_language">
+                <option value="English">🇬🇧 English</option>
+                <option value="French" selected>🇫🇷 French</option>
+                <option value="Spanish">🇪🇸 Spanish</option>
+                <option value="German">🇩🇪 German</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div class="actions-left">
+              <button type="submit" id="submit-btn">
+                <span>Translate PDF</span>
+              </button>
+              <div class="status" id="status"></div>
+            </div>
+          </div>
+
+          <div class="progress-wrap" id="progress-wrap">
+            <div class="progress-track">
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
+          </div>
+
+          <div class="error" id="error"></div>
+          <div class="hint">Files are processed in your browser session and sent securely to the translator API.</div>
+        </form>
+      </div>
+    </main>
+
+    <script src="/static/js/app.js" defer></script>
+  </body>
+</html>
