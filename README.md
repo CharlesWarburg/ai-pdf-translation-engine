@@ -1,5 +1,7 @@
 # AI PDF Translator
 
+For setup and first-run instructions, see [SETUP_GUIDE.md](SETUP_GUIDE.md).
+
 ## Overview
 
 The AI PDF Translator is a web application that allows users to upload a PDF, select a target language, and receive a translated PDF.
@@ -170,16 +172,67 @@ This project taught me how to:
 
 ```text
 app/
+│
+├── main.py
+│      ↓
+│  Starts FastAPI
+│  Loads middleware
+│  Mounts routes
+│
 ├── routers/
+│      ↓
+│  translate.py
+│      ↓
+│  Receives upload request
+│  Validates inputs
+│  Calls translation service
+│
 ├── services/
+│
+│  translation.py
+│      ↓
+│  Main orchestrator
+│
+│  extract PDF
+│      ↓
+│  chunk document
+│      ↓
+│  call AI
+│      ↓
+│  validate
+│      ↓
+│  create PDF
+│
+│  agents.py
+│      ↓
+│  TranslationAgent
+│  ValidationAgent
+│
+│  chunking.py
+│      ↓
+│  Splits document into manageable chunks
+│
+│  pdf_io.py
+│      ↓
+│  Reads PDF
+│  Creates output PDF
+│
 ├── utils/
+│      ↓
+│  Error handling
+│
 ├── static/
-├── config.py
-└── main.py
+│      ↓
+│  Frontend interface
+│
+└── config.py
+       ↓
+   Environment variables
 
 docker-compose.yml
 requirements.txt
 README.md
+SETUP_GUIDE.md
 ```
 
 ---
